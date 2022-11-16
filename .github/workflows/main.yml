@@ -1,0 +1,64 @@
+name: CI
+
+#Conrols when the action will run.
+
+on :
+
+push:
+branches: [ main] 
+pull_request:
+branches: [ main ]
+
+
+workflow_dispatch :
+jobs:
+
+build:
+
+steps :
+runs-on: ubantu-latest
+
+uses: actions/checkout@v2
+name: CI
+
+#Conrols when the action will run.
+
+on :
+
+push:
+branches: [ main] 
+pull_request:
+branches: [ main ]
+
+
+workflow_dispatch :
+jobs:
+
+build:
+
+steps :
+runs-on: ubantu-latest
+
+uses: actions/checkout@v2
+ - name: PerfAction for JMeter
+  # You may pin to the exact commit or the version.
+  # uses: QAInsights/PerfAction@e9460cd32edbd6686068034e4b2d5c0fa7a1568d
+  uses: QAInsights/PerfAction@3.0
+  with:
+    # jmeter test plan to execute
+    test-plan-path: './facebook.jmx'
+
+ 
+    
+    name : Upload Results
+    uses: action/upload-artifact@v2
+    with:
+    name1: jmeter-results
+    path: result.jtl 
+ 
+    
+    name : Upload Results
+    uses: action/upload-artifact@v2
+    with:
+    name1: jmeter-results
+    path: result.jtl
